@@ -25,7 +25,8 @@
       integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
       crossorigin="anonymous"
     ></script>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" type="text/javascript"></script>
     <link href="carousel.css" rel="stylesheet" />
   </head>
   <body>
@@ -90,12 +91,12 @@
 	      <input type="file" id="hw" name="hw">
 	      <br>
               
-	      	<a
-                  class="btn btn-lg btn-primary"
-                  role="button"
-		  href="javascript:submit()">
+	      	<a class="btn btn-lg btn-primary" role="button"
+		        href="javascript:submit()">
 		  Submit Homework
 		</a>
+  </div>
+  </div>
 
 		<script>
       function submit(){
@@ -106,9 +107,22 @@
         })
         .then(response => response.json())
         .then(result => {
+          new Noty({
+            type: 'success',
+            layout: 'topRight',
+            text: 'Homework Submitted!',
+            timeout: 10000
+          }).show();
           console.log('Success:', result);
+          fileField.reset();
         })
         .catch(error => {
+          new Noty({
+            type: 'error',
+            layout: 'topRight',
+            text: 'Error: ' + error,
+            timeout: 10000
+          }).show();
           console.error('Error:', error);
         });
       }
