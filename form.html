@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="../../favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+
+    <title>StuyDevs</title>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+
+    <link href="carousel.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-inverse bg-light" style="background-color: #F6BF51;">
+          <div class="container">
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">StuyDevs</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+		<li><a href="form.html">Submit</a></li>
+	      </ul>
+            </div>
+        </nav>
+      </div>
+    </div>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol> -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img
+            class="first-slide"
+            style="background-size: contain;"
+            src="https://images.squarespace-cdn.com/content/v1/57042c07859fd0990acfaad0/1464715564899-7PGZBJTL7M13V31LSCSB/solid+blue+banner.png?format=2500w"
+            alt="First slide"
+          />
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Homework Submition</h1>
+              <p>
+	      Upload your homework files from your computer and then submit them to the Stuy
+	      Devs github repo.
+              </p>
+              <p>
+
+           <p>
+             (IMPORTANT) Make sure to put this on the first line of your file: <i>username</i>/<i>filename</i>
+           </p>     
+	      <br>
+	      <input type="file" id="hw" name="hw">
+	      <br>
+              
+	      	<a
+                  class="btn btn-lg btn-primary"
+                  role="button"
+		  href="javascript:submit()">
+		  Submit Homework
+		</a>
+
+		<script>
+      function submit(){
+        const fileField = document.getElementById("hw");
+        fetch('https://stuydevs-upload.srijal30.repl.co/upload', {
+          method: 'POST',
+          body: fileField.files[0]
+        })
+        .then(response => response.json())
+        .then(result => {
+          console.log('Success:', result);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+		</script>
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+    </script>
+  </body>
+</html>
+

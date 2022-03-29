@@ -6,7 +6,13 @@ body {
     padding-bottom: 40px;
     color: #5a5a5a;
   }
-  
+
+/* For File SUbmition */
+  input{
+    margin: auto;
+    color: black;
+  }
+
   
   /* CUSTOMIZE THE NAVBAR
   -------------------------------------------------- */
@@ -34,7 +40,7 @@ body {
   
   
   /* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
+  ------------------------------------------------- */
   
   /* Carousel base class */
   .carousel {
